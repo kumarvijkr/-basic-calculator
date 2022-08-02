@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        
+body{
+    background-color: black;
+}
+.flx{
+    display: flex;
+}
+.calbody{
+    border: 2px solid white;
+    width: 300px;
+    height: 500px;
+    background-color: aliceblue;
+    margin-top: 50px;
+    margin-left: 200px;
+    border-radius: 10px;
+}
+.caltext{
+    border: 1px solid black;
+    height: 20px;
+    padding: 10px;
+    text-align: center;
+    background-color: rgb(0, 115, 119);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.number{
+    border: 1px solid aquamarine;
+    height: 310px;
+    background-color: rgb(0, 115, 119);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.common{
+    width: 40px;
+    height: 40px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.x{
+    width: 40px;
+    height: 30px;
+    margin-top: 25px;
+    margin-left: 20px;
+}
+.devide{
+    width: 40px;
+    height: 40px;
+    margin-top: 20px;
+    margin-left: 40px;
+    background-color: aqua;
+    border-color: aqua;
+}
+.multiply,.subtract,.addition,.equalto{
+    width: 40px;
+    height: 40px;
+    margin-top: 20px;
+    margin-left: 40px;
+    background-color: aqua;
+    border-color: aqua;
+}
+.display{
+    font-size: 20px;
+    width: 292px;
+    margin-top: 105px;
+    background-color: azure;
+    border-color: azure;
+    height: 40px
+}
+
+    </style>
+</head>
+<body>
+    <div class="calbody"> 
+       <div class="caltext"> Basic Calculator</div>
+       <input class="display" type="text"></input>
+        <div class="number">
+            <button class="c common">C</button>
+            <button class="percentage common">%</button>
+            <button class="x common">x</button>
+            <button class="devide common">/</button>
+
+            <button class="one common">1</button>
+            <button class="two common">2</button>
+            <button class="three common">3</button>
+            <button class="multiply common">*</button>
+
+            <button class="four common">4</button>
+            <button class="five common">5</button>
+            <button class="six common">6</button>
+            <button class="subtract common">-</button>
+
+            <button class="seven common">7</button>
+            <button class="eight common">8</button>
+            <button class="nine common">9</button>
+            <button class="addition common">+</button>
+
+            <button class="doublezero common">00</button>
+            <button class="zero common">0</button>
+            <button class="dot common">.</button>
+            <button class="equalto common">=</button>
+        </div>
+    </div>
+    <!-- ------------------script----------------- -->
+
+    <script>
+        let string = "";
+        let buttons = document.querySelectorAll(".common")
+            let arr = Array.from(buttons);
+            arr.forEach(function(btn){
+            btn.addEventListener("click",function(v){
+                if(v.target.innerHTML == "="){
+                    string = eval(string);
+                    document.querySelector("input").value = string;
+                }
+                 else if(v.target.innerHTML == "C"){
+                    string ="";
+                    document.querySelector("input").value = string;
+                }
+                else if(v.target.innerHTML == "x"){
+                    string = string.slice(0,-1);
+                    document.querySelector("input").value = string;
+                }
+                else{
+                    console.log(v.target);
+                    string = string + v.target.innerHTML;
+                    document.querySelector("input").value = string;
+                }
+            })
+        })
+
+    </script>
+
+    <!-- -------------------------------------------- -->
+</body>
+</html>
